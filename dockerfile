@@ -1,0 +1,10 @@
+FROM python:3.12-slim
+
+WORKDIR /app
+RUN pip install uv
+COPY pyproject.toml uv.lock ./
+RUN uv pip sync
+COPY app.py .
+EXPOSE 8050
+
+CMD ["gunicorn", "-b", "0.0.0.0:8050", "app:server"]
