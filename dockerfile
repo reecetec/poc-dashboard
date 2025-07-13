@@ -3,7 +3,7 @@ FROM python:3.12-slim
 WORKDIR /app
 RUN pip install uv
 COPY pyproject.toml uv.lock ./
-RUN uv pip sync
+RUN uv sync
 COPY app.py .
 EXPOSE 8050
 
