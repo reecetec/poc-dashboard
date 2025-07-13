@@ -7,4 +7,4 @@ RUN uv sync
 COPY app.py .
 EXPOSE 8050
 
-CMD ["gunicorn", "-b", "0.0.0.0:8050", "app:server"]
+CMD ["uv", "run", "gunicorn", "-b", "0.0.0.0:8050", "app:server"]
