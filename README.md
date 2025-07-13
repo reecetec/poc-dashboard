@@ -25,6 +25,7 @@ In a new terminal where you will run your dashboard app, export the database and
 ```bash
 # This command creates a .env file in your current directory
 (
+  echo "APP_ENV=dev"
   echo "POSTGRES_USER=$(kubectl get secret postgres-secret -n ducklake -o jsonpath='{.data.username}' | base64 --decode)"
   echo "POSTGRES_PASSWORD=$(kubectl get secret postgres-secret -n ducklake -o jsonpath='{.data.password}' | base64 --decode)"
   echo "POSTGRES_DB=$(kubectl get secret postgres-secret -n ducklake -o jsonpath='{.data.database}' | base64 --decode)"
