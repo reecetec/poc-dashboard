@@ -45,7 +45,7 @@ def get_db_connection():
         con.execute("SET s3_use_ssl=false;")
 
         # Construct DSN and ATTACH command
-        dsn = f"dbname={pg_db} user={pg_user} password={pg_password} host={pg_host} port=5433"
+        dsn = f"dbname={pg_db} user={pg_user} password={pg_password} host={pg_host} port=5432"
         attach_sql = f"ATTACH 'ducklake:postgres:{dsn}' AS prod_lake (DATA_PATH '{data_path}', READ_ONLY);"
 
         con.execute("INSTALL ducklake; LOAD ducklake;")
